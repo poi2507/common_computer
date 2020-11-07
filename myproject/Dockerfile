@@ -12,5 +12,5 @@ WORKDIR /srv/docker-server
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-EXPOSE 8000
+ENV PORT 8080
 CMD ["python","manage.py","runserver","127.0.0.1:8000"]
