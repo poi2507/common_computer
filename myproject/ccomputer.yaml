@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+  creationTimestamp: "2020-11-08T17:18:54Z"
+  generation: 2
+  labels:
+    app: ccomputer
+  name: ccomputer
+  namespace: default
+  resourceVersion: "2458"
+  selfLink: /apis/apps/v1/namespaces/default/deployments/ccomputer
+  uid: eb0dabd9-2028-425b-b233-51e607e327a7
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: ccomputer
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: ccomputer
+    spec:
+      containers:
+      - image: gcr.io/comcomputer/hello-app@sha256:28fd215a3840b57d387c6de1076c9c67fddb7ca1e54fb34cf265c738f9c32301
+        imagePullPolicy: IfNotPresent
+        name: hello-app-sha256-1
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2020-11-08T17:19:38Z"
+    lastUpdateTime: "2020-11-08T17:19:38Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2020-11-08T17:18:54Z"
+    lastUpdateTime: "2020-11-08T17:19:38Z"
+    message: ReplicaSet "ccomputer-6f8777cd45" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  observedGeneration: 2
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1
