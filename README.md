@@ -1,4 +1,4 @@
-# common_computer
+# web_practice_1
 
 ## 1. 개발환경
 * django : 수를 입력받아 그 수의 소인수 중 가장 큰값을 return 해주는 web program 개발
